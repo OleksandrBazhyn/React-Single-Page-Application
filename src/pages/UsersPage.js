@@ -3,8 +3,7 @@ import { fetchUsers } from '../api';  // Перевірте, чи правиль
 
 const UsersPage = () => {
   const [users, setUsers] = useState([]);
-  const [error, setError] = useState(null);
-
+  
   useEffect(() => {
     fetchUsers()
       .then((response) => {
@@ -13,21 +12,31 @@ const UsersPage = () => {
       })
       .catch((err) => console.error('Помилка:', err));
   }, []);
-  
 
   return (
     <div className="container mt-5">
-      <h2>Користувачі</h2>
+      <h2 className="mb-4">Користувачі</h2>
       {users.length === 0 ? (
         <p>Немає користувачів для відображення</p>
       ) : (
-        <ul className="list-group">
-          {users.map((user) => (
-            <li key={user.id} className="list-group-item">
-              {user.username} - {user.email}
-            </li>
-          ))}
-        </ul>
+        <div className="table-responsive">
+          <table className="table table-bordered">
+            <thead>
+              <tr>
+                <th>Ім'я користувача</th>
+                <th>Електронна пошта</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((user) => (
+                <tr key={user.id}>
+                  <td>{user.username}</td>
+                  <td>{user.email}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
   );  

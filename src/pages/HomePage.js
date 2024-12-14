@@ -1,25 +1,36 @@
-// src/HomePage.js
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const HomePage = () => {
   return (
-    <div className="container">
-      <div className="jumbotron mt-5">
+    <div className="container mt-5">
+      <div className="jumbotron">
         <h1 className="display-4">Ласкаво просимо до Task Manager!</h1>
         <p className="lead">Це ваша домашня сторінка. Використовуйте посилання нижче для навігації.</p>
         <hr className="my-4" />
         <p>Ось список доступних сторінок:</p>
         <div className="list-group">
-          <Link to="/tasks" className="list-group-item list-group-item-action">
+          <NavLink 
+            to="/tasks" 
+            className="list-group-item list-group-item-action" 
+            activeClassName="active"
+          >
             Завдання
-          </Link>
-          <Link to="/users" className="list-group-item list-group-item-action">
+          </NavLink>
+          <NavLink 
+            to="/users" 
+            className="list-group-item list-group-item-action" 
+            activeClassName="active"
+          >
             Користувачі
-          </Link>
-          <Link to="/attachments" className="list-group-item list-group-item-action">
+          </NavLink>
+          <NavLink 
+            to="/attachments" 
+            className="list-group-item list-group-item-action" 
+            activeClassName="active"
+          >
             Прикріплення
-          </Link>
+          </NavLink>
         </div>
       </div>
     </div>

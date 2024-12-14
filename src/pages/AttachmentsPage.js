@@ -15,20 +15,20 @@ const AttachmentsPage = () => {
 
   return (
     <div className="container mt-5">
-      <h2>Прикріплення</h2>
+      <h2 className="mb-4">Прикріплення</h2>
       {attachments.length === 0 ? (
         <p>Немає прикріплень для відображення</p>
       ) : (
-        <ul className="list-group">
+        <div className="list-group">
           {attachments.map((attachment) => (
-            <li key={attachment.id} className="list-group-item">
-              <a href={attachment.fileUrl} target="_blank" rel="noopener noreferrer">
+            <div key={attachment.id} className="list-group-item d-flex justify-content-between align-items-center">
+              <a href={attachment.fileUrl} target="_blank" rel="noopener noreferrer" className="btn btn-link">
                 Переглянути файл
               </a>
-              - Завдання ID: {attachment.TaskId}
-            </li>
+              <span>Завдання ID: {attachment.TaskId}</span>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );
