@@ -1,22 +1,21 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import UserList from './components/UserList';
-import TaskList from './components/TaskList';
-import AttachmentList from './components/AttachmentList';
+import HomePage from './pages/HomePage';
+import UsersPage from './pages/UsersPage';
+import TasksPage from './pages/TasksPage';
+import AttachmentsPage from './pages/AttachmentsPage';
 
-function App() {
+const App = () => {
   return (
     <Router>
-      <div className="App">
-        <h1>Task Manager</h1>
-        <Routes>
-          <Route path="/users" element={<UserList />} />
-          <Route path="/tasks" element={<TaskList />} />
-          <Route path="/attachments" element={<AttachmentList />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<HomePage />} /> {/* Головна сторінка */}
+        <Route path="/users" element={<UsersPage />} /> {/* Користувачі */}
+        <Route path="/tasks" element={<TasksPage />} /> {/* Завдання */}
+        <Route path="/attachments" element={<AttachmentsPage />} /> {/* Прикріплення */}
+      </Routes>
     </Router>
   );
-}
+};
 
 export default App;
