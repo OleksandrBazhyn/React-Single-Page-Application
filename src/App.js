@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Routes, Link, NavLink } from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
 import HomePage from './pages/HomePage';
 import UsersPage from './pages/UsersPage';
 import TasksPage from './pages/TasksPage';
@@ -9,13 +10,9 @@ import AttachmentsPage from './pages/AttachmentsPage';
 const App = () => {
   return (
     <Router>
-      {/* Навігаційне меню */}
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <Link to="/" className="navbar-brand">Task Manager</Link>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
@@ -30,20 +27,21 @@ const App = () => {
               <li className="nav-item">
                 <NavLink to="/attachments" className="nav-link" activeClassName="active">Прикріплення</NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink to="/landing" className="nav-link" activeClassName="active">Landing Page</NavLink> {/* Додайте цей пункт */}
+              </li>
             </ul>
           </div>
         </div>
       </nav>
 
-      {/* Головний вміст */}
-      <div className="container mt-5">
-        <Routes>
-          <Route path="/" element={<HomePage />} /> {/* Головна сторінка */}
-          <Route path="/users" element={<UsersPage />} /> {/* Користувачі */}
-          <Route path="/tasks" element={<TasksPage />} /> {/* Завдання */}
-          <Route path="/attachments" element={<AttachmentsPage />} /> {/* Прикріплення */}
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/users" element={<UsersPage />} />
+        <Route path="/tasks" element={<TasksPage />} />
+        <Route path="/attachments" element={<AttachmentsPage />} />
+        <Route path="/landing" element={<LandingPage />} /> {/* Додайте цей маршрут */}
+      </Routes>
     </Router>
   );
 };
